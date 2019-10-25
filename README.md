@@ -9,7 +9,7 @@ Ngoc-Trung Tran, Viet-Hung Tran, Ngoc-Bao Nguyen, Linxiao Yang, and Ngai-Man Che
 
 ## Data
 * Supporting datasets: MNIST, Stacked MNIST (or MNIST 1K) CIFAR-10/100, STL-10 and ImageNet 32x32.
-* When the code runs first time, the dataset is automatically downloaded in `./output/` or your defined path `--out_dir=...`.
+* When the code runs first time, the dataset is automatically downloaded in `--data_source=...`.
 
 ### Training and testing
 
