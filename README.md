@@ -1,7 +1,6 @@
 # Self-supervised GAN: Analysis and Improvement with Multi-class Minimax Game
 
-Tensorflow code of the paper "Self-supervised GAN: Analysis and Improvement with Multi-class Minimax Game", NeurIPS 2019<br>
-Ngoc-Trung Tran, Viet-Hung Tran, Ngoc-Bao Nguyen, Linxiao Yang, and Ngai-Man Cheung.
+Tensorflow code of the paper "Self-supervised GAN: Analysis and Improvement with Multi-class Minimax Game".
 
 ## Dependencies
 * Python (2.7, 3.5, 3.6), Numpy, Tensorflow, SciPy, scikit-learn
