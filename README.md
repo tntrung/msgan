@@ -108,5 +108,5 @@ If you find this work useful in your research, please consider citing:
 
 [1] Unrolled Generative Adversarial Networks, ICLR 2016.
 
-We're going to release TPU code of our model soon.
+We're going to release MS task of standard GAN and our TPU code soon.
 
