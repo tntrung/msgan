@@ -62,10 +62,10 @@ python msdistgan_cifar.py --db_name=cifar100 --nnet_type=resnet --loss_type=hing
 
 ```
 //Computing FID (10K-10K) of the pre-trained model of CIFAR-10
-python msdistgan_cifar.py --db_name=cifar10 --nnet_type=resnet --loss_type=hinge --ss_task=2 --data_source=./data/cifar10/ --nb_test_real=10000 ----nb_test_fake=10000 --is_train=0
+python msdistgan_cifar.py --db_name=cifar10 --nnet_type=resnet --loss_type=hinge --ss_task=2 --data_source=./data/cifar10/ --nb_test_real=10000 --nb_test_fake=10000 --is_train=0
 
 //Computing FID (10K-10K) of the pre-trained model of CIFAR-10
-python msdistgan_cifar.py --db_name=cifar100 --nnet_type=resnet --loss_type=hinge --ss_task=2 --data_source=./data/cifar100/ --nb_test_real=10000 ----nb_test_fake=10000 --is_train=0
+python msdistgan_cifar.py --db_name=cifar100 --nnet_type=resnet --loss_type=hinge --ss_task=2 --data_source=./data/cifar100/ --nb_test_real=10000 --nb_test_fake=10000 --is_train=0
 ```
 
 #### STL-10
@@ -76,7 +76,7 @@ python msdistgan_stl10.py --nnet_type=resnet --loss_type=hinge --ss_task=2 --is_
 
 ```
 //Computing FID (10K-10K) of the pre-trained model of STL-10
-python msdistgan_stl10.py --nnet_type=resnet --loss_type=hinge --ss_task=2 --nb_test_real=10000 ----nb_test_fake=10000 --is_train=0
+python msdistgan_stl10.py --nnet_type=resnet --loss_type=hinge --ss_task=2 --nb_test_real=10000 --nb_test_fake=10000 --is_train=0
 ```
 
 #### ImageNet 32x32
@@ -88,7 +88,7 @@ python msdistgan_imagenet32.py --nnet_type=resnet --loss_type=hinge --ss_task=2 
 
 ```
 //Computing FID (10K-10K) of the pre-trained model of Imagenet 32x32
-python msdistgan_imagenet32.py --nnet_type=resnet --loss_type=hinge --ss_task=2 --nb_test_real=10000 ----nb_test_fake=10000 --is_train=0
+python msdistgan_imagenet32.py --nnet_type=resnet --loss_type=hinge --ss_task=2 --nb_test_real=10000 --nb_test_fake=10000 --is_train=0
 ```
 
 ### Citation
