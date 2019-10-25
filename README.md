@@ -8,8 +8,8 @@ Ngoc-Trung Tran, Viet-Hung Tran, Ngoc-Bao Nguyen, Linxiao Yang, and Ngai-Man Che
 * Recent NVIDIA GPUs
 
 ## Data
-* Supporting datasets: MNIST, Stacked MNIST (or MNIST 1K) CIFAR-10/100, STL-10 and ImageNet 32x32.
-* When the code runs first time, the dataset is automatically downloaded in `--data_source=...`.
+* Supporting datasets: MNIST, Stacked MNIST (or MNIST 1K), CelebA, CIFAR-10/100, STL-10 and ImageNet 32x32.
+* When the code runs first time, the dataset is automatically downloaded in `--data_source=<your path>`.
 
 ### Training and testing
 
