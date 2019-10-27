@@ -45,7 +45,7 @@ if __name__ == '__main__':
     out_dir       = opt.out_dir
     data_source   = opt.data_source
     
-    if db_name not in ['cifar10' or 'cifar100']:
+    if db_name not in ['cifar10', 'cifar100']:
        print('\n[msdisgan_cifar.py -- __main__] %s is not supported.' % (db_name))
        exit()
            

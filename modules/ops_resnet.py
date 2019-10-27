@@ -22,7 +22,6 @@ import numpy as np
 import tensorflow as tf
 from contextlib import contextmanager
 
-
 rng = np.random.RandomState([2016, 6, 1])
 
 

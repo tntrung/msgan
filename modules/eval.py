@@ -40,7 +40,7 @@ def generate_fake_samples(model, out_dir = None, ckpt_dir = None, ext = 'jpg', n
                     imwrite(im_fake_save[ii,:,:,:], fake_path)
                     index=index+1
 
-def compute_mode_kl(fake_source, is_train = 0, ext='jpg'):
+def compute_mode_kl(fake_source, is_train = 0, ext='jpg', out_dir='./output/mnist1k'):
     
     tf.reset_default_graph()
     
@@ -51,6 +51,10 @@ def compute_mode_kl(fake_source, is_train = 0, ext='jpg'):
     if is_train == 1:
         classifier.Train(save_path=model_path)
     else:
+        
+        logfile = out_dir + '_modekl.txt'
+        fid_log = open(logfile, 'w')
+    
         _, Curr_Labels, _ , Curr_Labels2, _, Curr_Labels3 = classifier.Evaluate_Labels(source=fake_source, model_path=model_path, ext=ext)
         all_label= Curr_Labels*100+Curr_Labels2*10+Curr_Labels3
         hist, _ = np.histogram(all_label, modes)
@@ -67,18 +71,25 @@ def compute_mode_kl(fake_source, is_train = 0, ext='jpg'):
                 KL= KL+p[j]*math.log(p[j]/q)
         
         print('[eval.py -- compute_mode_kl] #KL = ', KL)
+        
+        # out to file
+        strout = "#modes = %d, KL = %f" % (numModes, KL)
+        fid_log.write(strout + '\n')
+        fid_log.close()
+        
         '''
         plt.figure(1)
         plt.bar(range(modes),p)
         plt.title('histogram')
         plt.show()
         '''
+        
         return numModes, KL
 
 
 def compute_fid_score(dbname = 'cifar10', \
                       input_dir  = '../../gan/output/', \
-                      model = 'cifar10_wgangp_dcgan_wdis_lp_10_300000', \
+                      model = 'cifar10', \
                       nb_train = 10000, nb_test = 10000,\
                       start = 10000, niters = 300000, step = 10000, \
                       re_est_gth = False,\
@@ -135,5 +146,7 @@ def compute_fid_score(dbname = 'cifar10', \
                 
         #np.save(mu_gth_file, mu_gth)
         #np.save(sigma_gth_file, sigma_gth)
-
+    
+    fid_log.close()
+    
     return fid_value

@@ -11,7 +11,7 @@ import numpy as np
 import tensorflow as tf
 import time
 import warnings
-warnings.simplefilter("ignore",category=FutureWarning)
+warnings.filterwarnings("ignore")
 
 from modules.imutils import *
 from modules.mdutils import *
@@ -271,7 +271,7 @@ class MSDistGAN(object):
 
             # compute SS loss
             if self.ss_task == 1:
-				
+                
                 # predict real/fake classes of argumented samples with classifier
                 _,  _,  _, self.real_cls = self.D(self.Xarg,   self.data_shape,   dim = self.df_dim, ss_task = self.ss_task, reuse=True)
                 _,  _,  _, self.fake_cls = self.D(self.Xarg_f, self.data_shape,   dim = self.df_dim, ss_task = self.ss_task, reuse=True)
@@ -346,8 +346,8 @@ class MSDistGAN(object):
            self.d_cost = self.d_cost_gan + self.lambda_d * self.d_acc
            self.g_cost = self.g_cost_gan + self.lambda_g * self.g_acc
         else:
-		   self.d_cost = self.d_cost_gan	
-		   self.g_cost = self.g_cost_gan
+           self.d_cost = self.d_cost_gan    
+           self.g_cost = self.g_cost_gan
 
         # Create optimizers        
         if self.nnet_type == 'resnet':
@@ -483,13 +483,13 @@ class MSDistGAN(object):
                     imsave_batch(mb_X_f, self.data_shape, im_save_path)
                     
                     if self.ss_task > 0:
-						# save argumented images
+                        # save argumented images
                         Xarg = sess.run(self.Xarg,feed_dict={self.X: mb_X, self.z: mb_z})                    
                         im_save_path = os.path.join(self.out_dir,'image_%d_real_argu.jpg' % (step))
                         imsave_batch(Xarg, self.data_shape, im_save_path)
                         
                         if self.ss_task == 2:
-							# save mix argumented images
+                            # save mix argumented images
                             Xarg_mix = sess.run(self.Xarg_mix,feed_dict={self.X: mb_X, self.z: mb_z})
                             im_save_path = os.path.join(self.out_dir,'image_%d_mixe_argu.jpg' % (step))
                             imsave_batch(Xarg_mix, self.data_shape, im_save_path)
@@ -523,7 +523,7 @@ class MSDistGAN(object):
                                 fake_path = fake_dir + '/image_%05d.jpg' % (np.min([v*self.batch_size + ii, self.nb_test_fake]))
                                 imwrite(im_fake_save[ii,:,:,:], fake_path)
 
-                if step > 0 and step % 50000 == 0:
+                if step > 0 and step % int(self.n_steps/2) == 0:
                     if not os.path.exists(self.ckpt_dir +'%d/'%(step)):
                         os.makedirs(self.ckpt_dir +'%d/'%(step))
                     save_path = saver.save(sess, '%s%d/epoch_%d.ckpt' % (self.ckpt_dir, step,step))

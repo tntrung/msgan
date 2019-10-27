@@ -8,7 +8,7 @@ import tensorflow as tf
 
 from functools import partial
 import functools
-import ops_resnet as ops
+import modules.ops_resnet as ops
 
 '''
 ========================================================================

@@ -1,9 +1,10 @@
 import numpy as np
 import random
 import math
-from   skimage import io
+from   skimage import io, img_as_ubyte
 import tensorflow as tf
 import copy
+import scipy
 
 '''
 ************************************************************************
@@ -12,15 +13,14 @@ import copy
 '''
 
 def imread(path, is_grayscale=False):
-    img = io.imread(path)
+    img = scipy.ndimage.imread(path).astype(np.float)
     return np.array(img)
     
 def imwrite(image, path):
-    """ save an [-1.0, 1.0] image """
     if image.ndim == 3 and image.shape[2] == 1: # grayscale images
         image = np.array(image, copy=True)
         image.shape = image.shape[0:2]
-    return io.imsave(path, image)
+    return io.imsave(path, img_as_ubyte(image))
 
 def immerge_row_col(N):
     c = int(np.floor(np.sqrt(N)))

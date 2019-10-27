@@ -44,18 +44,18 @@ def load_stl10(data_dir):
     flag = os.path.exists(os.path.join(data_dir))
     
     if flag == False:
-		# download and unzip cifar data
-		filepath = download('http://ai.stanford.edu/~acoates/stl10/stl10_binary.tar.gz', data_dir);
-		#filepath = data_dir + '/stl10_binary.tar.gz'
-		decompress(filepath, data_dir);
-		# stl10_binary.tar.gz is extracted into 'stl10_binary'
-		# copy the files out and delete the folder
-		decom_dir = os.path.join(data_dir, 'stl10_binary')
-		data_bin  = os.path.join(decom_dir, 'unlabeled_X.bin')
-		create_stl10(data_bin,data_dir)
-		print('[stl10.py - load_stl10] removing %s' % (decom_dir))
-		remove_dir(decom_dir)
-		os.remove(os.path.join(data_dir, 'stl10_binary.tar.gz'))
+        # download and unzip cifar data
+        filepath = download('http://ai.stanford.edu/~acoates/stl10/stl10_binary.tar.gz', data_dir);
+        #filepath = data_dir + '/stl10_binary.tar.gz'
+        decompress(filepath, data_dir);
+        # stl10_binary.tar.gz is extracted into 'stl10_binary'
+        # copy the files out and delete the folder
+        decom_dir = os.path.join(data_dir, 'stl10_binary')
+        data_bin  = os.path.join(decom_dir, 'unlabeled_X.bin')
+        create_stl10(data_bin,data_dir)
+        print('[stl10.py - load_stl10] removing %s' % (decom_dir))
+        remove_dir(decom_dir)
+        os.remove(os.path.join(data_dir, 'stl10_binary.tar.gz'))
     
     
     

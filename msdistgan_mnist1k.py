@@ -223,4 +223,4 @@ if __name__ == '__main__':
         fake_dir = out_dir + '/fake_samples/'
         print('[msdistgan_mnist1k.py -- main] output_dir: %s' %(fake_dir))
         generate_fake_samples(msdistgan, fake_dir, n_steps = n_steps)
-        compute_mode_kl(fake_dir, is_train = 0)
+        compute_mode_kl(fake_dir, out_dir=out_dir)
