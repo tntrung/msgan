@@ -106,7 +106,7 @@ If you find this work useful in your research, please consider citing:
 
 ### References
 
-[1] Unrolled Generative Adversarial Networks, ICLR 2016.
+[1] Luke Metz, Ben Poole, David Pfau, Jascha Sohl-Dickstein, "Unrolled Generative Adversarial Networks", ICLR 2016.
 
 We're going to release MS task of standard GAN and our TPU code soon.
 
